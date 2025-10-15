@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+</head>
+
+<body>
+    <div align="center">
+        <a href="/">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/add-blog">Add Blog</a>
+    </div>
+    <div align="center">
+        <h2>Add Blog Page</h2>
+        <form enctype="multipart/form-data"  method="post" action="/add-blog">
+            <table>
+                <tr>
+                    <td>Title: </td>
+                    <td><input type="text" name="title" placeholder="Enter Title Here" /></td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td><input type="text" name="description" placeholder="Enter Description Here" /></td>
+                </tr>
+                <tr>
+                    <td>Author: </td>
+                    <td><input type="text" name="author" placeholder="Enter Author Name Here" /></td>
+                </tr>
+                <tr>
+                    <td>Blog Post Date: </td>
+                    <td><input type="date" name="postDate"  /></td>
+                </tr>
+                <tr>
+                    <td>Category: </td>
+                    <td><select name="category">
+                        <option>Select Category</option>
+                        <option value="Education">Education</option>
+                        <option value="Technology">Technology</option>
+                        <option value="History">History</option>
+                        <option value="Travelling">Travelling</option>
+                        <option value="Health">Health</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Blog Image: </td>
+                    <td><input type="file" name="blogImage" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Blog" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+const express = require('express');
+const { dashboardpage, loginPage, loginUser, logoutUser, changePasswordPage, changePassword, forgotPasswordPage, sendOTP, verfiyOTPPage, updatePasswordPage, verifyOTP, updatePassword } = require('../controller/index.controller');
+
+const routes = express.Router();
+
+routes.get("/", loginPage);
+routes.get("/dashboard", dashboardpage);
+routes.post("/login", loginUser);
+routes.get("/logout", logoutUser);
+routes.get("/change-password", changePasswordPage);
+routes.post("/change-password", changePassword);
+
+// Forgot Password
+routes.get("/forgotPassword", forgotPasswordPage);
+routes.post("/send-otp", sendOTP);
+routes.get("/verify-otp", verfiyOTPPage);
+routes.post("/verify-otp", verifyOTP);
+routes.get("/update-password", updatePasswordPage);
+routes.post("/update-password", updatePassword);
+
+routes.use("/admin", require('./admin.routes'));
+
+module.exports = routes;
