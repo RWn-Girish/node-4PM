@@ -37,4 +37,11 @@ passport.setAuthenticated = (req, res, next) => {
     }
 }
 
+passport.setValidateUser = (req, res, next) => {
+    if(req.isAuthenticated()){
+        res.locals.user = req.user;
+    }
+    next();
+}
+
 module.exports = passport;

@@ -36,13 +36,16 @@ exports.addAdmin = async (req, res) => {
     });
     if (admin) {
       console.log("Admin added");
+      req.flash('success', 'Admin Added Success!!!');
       return res.redirect("/admin/add-admin");
     } else {
       console.log("Admin not added");
+      req.flash('error', 'Admin not Added!!!');
       return res.redirect("/admin/add-admin");
     }
   } catch (error) {
     console.log(error);
+     req.flash('error', 'Something Error');
     return res.redirect("/dashboard");
   }
 };
