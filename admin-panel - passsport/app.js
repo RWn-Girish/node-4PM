@@ -34,6 +34,7 @@ app.use(flashMessage)
 //routes
 app.use("/", require("./routes/index.routes"))
 
-
-
 app.listen(port, () => console.log(`Server start at http://localhost:${port}/`));
+
+
+// https://meet.google.com/eoz-wmwd-mdk
