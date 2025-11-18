@@ -9,7 +9,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">All Sub Categories</h4>
+                        <h4 class="page-title">SubCategory Information</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -32,33 +32,39 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-6">
                         <div class="card">
-                            <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">Category Name</th>
-                                      <th scope="col">Image</th>
-                                      <th scope="col">Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <% subcategories.forEach((subcategory, i) => { %>
-                                        <tr>
-                                            <th scope="row"><%= i + 1%></th>
-                                            <td><%= subcategory.category.categoryName %></td>
-                                            <td><img src="<%= subcategory.category.categoryImage  %>" width="100" /></td>
-                                            <td><%= subcategory.subCategoryName %></td>
-                                            <td>
-                                                <a href="/subcategory/edit-subcategory/<%= subcategory.id %>"><i class="m-r-10 mdi mdi-account-edit"></i></a> || <a href="/subcategory/delete-subcategory/<%= subcategory.id %>"><i class="m-r-10 mdi mdi-delete-empty"></i></a>
-                                            </td>
-                                        </tr>
-                                    <% }) %>
+                            <form class="form-horizontal" method="post" action="/subcategory/edit-subcategory/<%= record.id %>">
+                                <div class="card-body">
+                                    <h4 class="card-title">SubCategory Info</h4>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Category Name</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="category" disabled>
+                                                <option>Select Any Category</option>
+                                                <% categories.forEach(category => { %>
+                                                        <option value="<%= category._id %>" <% if(category.id == record.category) { %>  selected <% } %> ><%= category.categoryName %></option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+                                    </div>
                                     
-                                  </tbody>
-                            </table>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Sub Category Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="fname" name="subCategoryName" value="<%= record.subCategoryName %>" placeholder="Enter Sub Category Name">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
+
                     </div>
                 </div>
                 <!-- ============================================================== -->
