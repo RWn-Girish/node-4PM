@@ -22,5 +22,6 @@ routes.post("/update-password", updatePassword);
 routes.use("/admin",  require('./admin.routes'));
 routes.use("/category", passport.setAuthenticated,  require('./category.routes'));
 routes.use("/subcategory", passport.setAuthenticated,  require('./subcategory.routes'));
+routes.use("/extracategory", passport.setAuthenticated,  require('./extracategory.routes'));
 
 module.exports = routes;
